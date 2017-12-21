@@ -1,0 +1,14 @@
+{% extends "webblog/header.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<div class='col-sm-6 col-sm-offset-2'>
+	<h1>Feedback Form</h1>
+	<hr/>
+
+	<form action="{% url 'webblog:feedback' %}" method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<input type="submit" class='btn btn-default' />
+	</form>
+{% endblock %}
